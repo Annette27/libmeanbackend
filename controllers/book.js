@@ -37,7 +37,7 @@ exports.postBook = async (req,res)=>{
     })
 }
 
-exports.putBook = async (req,res)=>{
+exports.putBook =  (req,res)=>{
  
     
    const { id} = req.body
