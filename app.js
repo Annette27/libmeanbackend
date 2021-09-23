@@ -68,7 +68,7 @@ UserData.findOne({exampleInputEmail1: user1.exampleInputEmail1})
     }
 
 else{
-    let error ="Invalid User";
+    let error ="Invalid Use";
     res.send({error})
     
 }
