@@ -25,8 +25,8 @@ mongoose.connect('mongodb://localhost:27017/LIBRARYAPPNEW')
 var app = new express();
 app.use(express.json());
 app.use(cors());
-// app.use(express.static("images"));
-app.use('/images',express.static(path.join('images')))
+app.use(express.static("./images"));
+// app.use('./images',express.static(path.join('images')))
 username = "admin@gmail.com";
 password="admin12345";
 
