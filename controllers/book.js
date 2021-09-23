@@ -3,21 +3,21 @@ const mongoose = require('mongoose');
 
 // mongoose.connect("mongodb+srv://userone:userone@libraryfiles.o5pxy.mongodb.net/LIBRARYAPPNEW?retryWrites=true&w=majority",{useUnifiedTopology:true,useNewUrlParser:true});
 mongoose.connect('mongodb://localhost:27017/LIBRARYAPPNEW')
-exports.getBooks= async(req,res)=>{
-    const books = await bookdata.find();
+exports.getBooks= (req,res)=>{
+    const books =  bookdata.find();
     // console.log(books)
     res.status(200).json({books})
 }
-exports.getBook= async(req,res)=>{
+exports.getBook= (req,res)=>{
     // console.log(req.body)
-    const book = await
+    const book =
      bookdata.findOne({_id: req.body})
 
     // console.log(books)
     res.status(200).json({book})
 }
 
-exports.postBook = async (req,res)=>{
+exports.postBook =  (req,res)=>{
     // console.log(req);
     const {title} = req.body;
     const {author} =req.body;
@@ -29,7 +29,7 @@ exports.postBook = async (req,res)=>{
         genre,
         image
     })
-    const createdBook = await book.save();
+    const createdBook =  book.save();
     res.status(201).json({
         book:{
             ...createdBook._doc
