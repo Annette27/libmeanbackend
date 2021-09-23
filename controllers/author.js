@@ -4,21 +4,21 @@ const mongoose = require('mongoose');
 // mongoose.connect("mongodb+srv://userone:userone@libraryfiles.o5pxy.mongodb.net/LIBRARYAPPNEW?retryWrites=true&w=majority",{useUnifiedTopology:true,useNewUrlParser:true});
 mongoose.connect('mongodb://localhost:27017/LIBRARYAPPNEW')
 
-exports.getAuthors= async(req,res)=>{
-    const authors = await authordata.find();
+exports.getAuthors=(req,res)=>{
+    const authors = authordata.find();
     // console.log(books)
     res.status(200).json({authors})
 }
-exports.getAuthor= async(req,res)=>{
+exports.getAuthor= (req,res)=>{
     // console.log(req.body)
-    const author = await
+    const author = 
      authordata.findOne({_id: req.body})
 
     // console.log(books)
     res.status(200).json({author})
 }
 
-exports.postAuthor = async (req,res)=>{
+exports.postAuthor =  (req,res)=>{
     // console.log(req);
     const {name} = req.body;
     const {countryname} =req.body;
@@ -30,7 +30,7 @@ exports.postAuthor = async (req,res)=>{
         genre,
         image
     })
-    const createdAuthor = await author.save();
+    const createdAuthor =  author.save();
     res.status(201).json({
         author:{
             ...createdAuthor._doc
@@ -38,7 +38,7 @@ exports.postAuthor = async (req,res)=>{
     })
 }
 
-exports.putAuthor = async (req,res)=>{
+exports.putAuthor =  (req,res)=>{
  
     
    const { id} = req.body
